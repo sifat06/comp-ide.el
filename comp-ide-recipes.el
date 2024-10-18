@@ -54,7 +54,7 @@
                                      ("go" "go build %bf")
                                      ("rs" "rustc %bf")))
 
-(setq comp-ide-comp-ide-execute-recipes '(("c" "./%bo")
+(setq comp-ide-comp-ide-execute-recipes '(("c" file-name-sans-extension(buffer-file-name))
                                      ("cpp" "./%bo")
                                      ("py" "python ./%bf")
                                      ("java" "java %bo")
