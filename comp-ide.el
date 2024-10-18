@@ -166,8 +166,9 @@ REPL - Replacing string"
   (interactive)
   (setq comp-ide-command (comp-ide-find-from-dict comp-ide-comp-ide-execute-recipes comp-ide-extension))
   (setq comp-ide-command (string-join (split-string (string-join (split-string comp-ide-command "%bf") (buffer-name)) "%bo") comp-ide-file-name))
-  
-  (defvar comp-ide-file-name (nth 0 (split-string (buffer-name) "\\.")))
+
+  (setq comp-ide-file-name (file-name-sans-extension (file-name-nondirectory (buffer-file-name))))
+  ;;(defvar comp-ide-file-name (nth 0 (split-string (buffer-name) "\\.")))
   (with-current-buffer (get-buffer "*Output*")
     (erase-buffer))
   (with-current-buffer (get-buffer "*Input*")
